@@ -2,19 +2,22 @@ public class StrengthWorkout extends Workout {
     private int sets;
     private int reps;
 
-    public StrengthWorkout(String date, int duration, int sets, int reps) {
-        super(date, duration);
+    public StrengthWorkout(String workoutType, int sets, int reps, int duration, String date) {
+        super(workoutType, duration, date);
         this.sets = sets;
         this.reps = reps;
     }
 
     @Override
     public void displayWorkout() {
-        System.out.println("Strength Workout | Date: " + date + " | Duration: " + duration + " mins | Sets: " + sets + " | Reps: " + reps);
+        System.out.printf("%-10s %-15s %-6d %-6d %-12s %-10s\n",
+                "Strength", workoutType, sets, reps, duration + " mins", date);
     }
+    
+    
 
     @Override
     public void logToFile() {
-        WorkoutManager.appendToFile("Strength," + date + "," + duration + "," + sets + "," + reps);
+        WorkoutManager.appendToFile("Strength," + workoutType  + "," + sets + "," + reps + "," + duration + "," + date );
     }
 }

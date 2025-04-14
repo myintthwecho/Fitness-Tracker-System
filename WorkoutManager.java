@@ -1,5 +1,10 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WorkoutManager {
     private static List<Workout> workoutList = new ArrayList<>();
@@ -14,7 +19,11 @@ public class WorkoutManager {
             System.out.println("No workouts logged yet.");
             return;
         }
-
+        System.out.println("\n================ Logged Workouts ================\n");
+        System.out.printf("%-10s %-15s %-6s %-6s %-12s %-10s\n",
+                "Type", "Workout", "Sets", "Reps", "Duration", "Date");
+        System.out.println("--------------------------------------------------------------");
+    
         for (Workout w : workoutList) {
             w.displayWorkout();
         }
@@ -36,9 +45,9 @@ public class WorkoutManager {
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts[0].equals("Cardio")) {
-                    workoutList.add(new CardioWorkout(parts[2], Integer.parseInt(parts[3]), parts[1]));
+                    workoutList.add(new CardioWorkout(parts[1], Integer.parseInt(parts[2]), parts[3]));
                 } else if (parts[0].equals("Strength")) {
-                    workoutList.add(new StrengthWorkout(parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4])));
+                    workoutList.add(new StrengthWorkout(parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]),Integer.parseInt(parts[4]), parts[5]));
                 }
             }
         } catch (IOException e) {
