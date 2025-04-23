@@ -178,6 +178,7 @@ public class Main {
                         int duration = getDuration(sc);// duration (in minutes)
                         String date = getDate(sc);
                         WorkoutManager.addWorkout(new StrengthWorkout(workoutType, sets, reps, duration, date));//add workout to list then write to file
+                        System.out.println("Strength workout added!");
                     } catch (Exception e) {
                         System.out.println("Invalid input. Workout not added.");
                     }
