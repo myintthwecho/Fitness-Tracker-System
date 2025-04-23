@@ -1,3 +1,4 @@
 Cardio,Running,20,01-02-2025
 Strength,Legs,4,20,60,23-04-2025
 Strength,Legs,3,10,30,04-08-2024
+Strength,back,5,10,60,24-08-2024
